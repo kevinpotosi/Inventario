@@ -32,11 +32,7 @@ export-env {
       }
     }
 
-<<<<<<< HEAD
-    let virtual_env = 'C:\Users\Kevin\Documents\Universidad\6to Semestre\Aplicaciones Distribuidas\Módulo de Inventario\Inventario\venv'
-=======
     let virtual_env = 'C:\Users\Kevin\Documents\Universidad\6to Semestre\Aplicaciones Distribuidas\Módulo Inventario\Inventario\venv'
->>>>>>> Kevin
     let bin = 'Scripts'
 
     let is_windows = ($nu.os-info.family) == 'windows'

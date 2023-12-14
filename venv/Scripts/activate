@@ -45,11 +45,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-<<<<<<< HEAD
-VIRTUAL_ENV='C:\Users\Kevin\Documents\Universidad\6to Semestre\Aplicaciones Distribuidas\Módulo de Inventario\Inventario\venv'
-=======
 VIRTUAL_ENV='C:\Users\Kevin\Documents\Universidad\6to Semestre\Aplicaciones Distribuidas\Módulo Inventario\Inventario\venv'
->>>>>>> Kevin
 if ([ "$OSTYPE" = "cygwin" ] || [ "$OSTYPE" = "msys" ]) && $(command -v cygpath &> /dev/null) ; then
     VIRTUAL_ENV=$(cygpath -u "$VIRTUAL_ENV")
 fi
