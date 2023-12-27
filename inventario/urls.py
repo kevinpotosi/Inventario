@@ -1,8 +1,10 @@
-from django.urls import path
-from .views import listproducts
-from . import views
+from django.urls import path, include
+from inventario import views
+from rest_framework import routers
+
+router = routers.DefaultRouter()
+router.register(r'products',views.ProductView,'products')
 
 urlpatterns = [
-     path('', listproducts),
-     path('get/', views.getProduct),
+     path('', include(router.urls)),
 ]
