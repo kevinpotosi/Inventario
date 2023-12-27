@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react'
 import { getAllProduct } from '../api/product.api'
+import { useNavigate} from 'react-router-dom';
 
 export function Listproduct(){
     
     const [products, setProduct] = useState([]);
-    
+    const navigate = useNavigate()
+
     useEffect(() => {
         async function loadProduct(){
             const res = await getAllProduct()
@@ -41,7 +43,7 @@ export function Listproduct(){
                 <td>{product.pro_image}</td>
                 <td>{product.pro_state ? 'Activo' : 'Inactivo'}</td>
                 <td>{product.pro_stock}</td>
-                <td><button>Editar</button><button>Eliminar</button></td>
+                <td><button onClick={()=>navigate('/create/'+product.pro_id)}>Editar</button><button>Eliminar</button></td>
               </tr>
             ))}
           </tbody>

@@ -8,6 +8,7 @@ function App(){
             <Routes>
                 <Route path='/' element={<Productpage/>}/>
                 <Route path='/create' element={<CreateProduct/>}/>                
+                <Route path='/create/:id' element={<CreateProduct/>}/>
             </Routes>
         </BrowserRouter>
     )

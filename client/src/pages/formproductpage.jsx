@@ -1,38 +1,50 @@
-import {useForm} from 'react-hook-form'
-import {createProduct} from '../api/product.api'
-import { useNavigate } from 'react-router-dom'
-import { Link } from 'react-router-dom'
-import { useParams } from 'react-router-dom'
+import {useForm } from 'react-hook-form'
+import {createProduct, updateProduct, getProductById} from '../api/product.api'
+import { Link, useNavigate, useParams } from 'react-router-dom'
+import { useEffect } from 'react'
 
 export function CreateProduct() {
 
-    const {register, handleSubmit} = useForm()
-
+    const {register, handleSubmit, setValue} = useForm()
     const navigate = useNavigate()
-
     const params = useParams()
 
-    const onSubmit = handleSubmit(async data => {
-        console.log(data)
-        const res = await createProduct(data)
-        console.log(res)        
-        if (params.id){
-          console.log("actualizando")
-        }else{
-          navigate("/")
+    useEffect(()=>{
+      async function loadProduct(){
+        if(params.id){
+          const res = await getProductById(params.id)
+          console.log(res)
+          setValue('pro_name', res.data.pro_name)
+          setValue("pro_descripcion", res.data.pro_descripcion)
+          setValue("pro_iva", res.data.pro_iva)
+          setValue("pro_cost", res.data.pro_cost)
+          setValue("pro_pvp", res.data.pro_pvp)
+          setValue("pro_image", res.data.pro_image)
+          setValue("pro_state", res.data.pro_state)
         }
-    })
+      }
+      loadProduct()
+    }, [])
 
+    const onSubmit = handleSubmit(async data => {
+      if(params.id){
+        await updateProduct(params.id, data)
+      }else{
+        await createProduct(data)
+      }
+        navigate("/")
+    })
     return( 
     <div>
-      <h2>Crear Nuevo Producto</h2>
+      {!params.id &&<h2>Crear Nuevo Producto</h2>}      
+      {params.id && <h2>Actualizar Producto</h2>}
       <form onSubmit={onSubmit}>
         <label htmlFor="pro_name">Nombre: </label>
         <input type="text" name="pro_name" required {...register("pro_name", {required: true})}/>        
         <br />
 
-        <label htmlFor="pro_desc">Descripcion: </label>
-        <input type="text" name="pro_desc" required {...register("pro_desc", {required: true})}/>        
+        <label htmlFor="pro_descripcion">Descripcion: </label>
+        <input type="text" name="pro_descripcion" required {...register("pro_descripcion", {required: true})}/>        
         <br />
 
         <label htmlFor="pro_iva">IVA: </label>
@@ -58,7 +70,7 @@ export function CreateProduct() {
         <button>Guardar</button>
       </form>
       <Link to="/"><button>Inicio</button></Link>
-    </div>
+    </div>    
     );
 }
 
