@@ -7,7 +7,6 @@ class Adjustment(models.Model):
     adj_id = models.AutoField(primary_key=True)
     adj_date = models.DateField(blank=True, null=True)
     adj_description = models.TextField(blank=True, null=True)
-    adj_state = models.BooleanField(blank=True, null=True)
 
     class Meta:
         managed = False
@@ -15,12 +14,10 @@ class Adjustment(models.Model):
 
 
 class DetailAdjustment(models.Model):
-    pro = models.ForeignKey('Product', models.DO_NOTHING, blank=True, null=True)
-    adj = models.ForeignKey(Adjustment, models.DO_NOTHING, blank=True, null=True)
+    pro_id = models.ForeignKey('Product', models.DO_NOTHING, blank=True, null=True)
+    adj_id = models.ForeignKey('Adjustment', models.DO_NOTHING, blank=True, null=True)
     det_adj_id = models.AutoField(primary_key=True)
     det_adj_quantity = models.DecimalField(max_digits=65535, decimal_places=65535, blank=True, null=True)
-    det_adj_modify = models.BooleanField(blank=True, null=True)
-    det_adj_state = models.BooleanField(blank=True, null=True)
 
     class Meta:
         managed = False
@@ -36,6 +33,7 @@ class Product(models.Model):
     pro_pvp = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
     pro_image = models.TextField(blank=True, null=True)
     pro_state = models.BooleanField(blank=True, null=True)
+    pro_stock = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
 
     class Meta:
         managed = False
