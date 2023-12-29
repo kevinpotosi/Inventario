@@ -96,7 +96,7 @@ DATABASES = {
     # }
     'default': dj_database_url.config(
         # Feel free to alter this value to suit your needs.
-        default='postgresql://postgres:root@localhost:5433/Inventario',
+        default='postgresql://postgres:root@localhost:5432/Inventario',
         conn_max_age=600
     )
 }
