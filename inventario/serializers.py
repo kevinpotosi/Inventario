@@ -1,5 +1,5 @@
 from rest_framework.serializers import ModelSerializer
-from .models import Adjustment, DetailAdjustment, Product
+from .models import Adjustment, Product
 
 class ProductSerializer (ModelSerializer):
     class Meta:
