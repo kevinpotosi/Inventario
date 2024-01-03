@@ -20,7 +20,7 @@ class Product(models.Model):
     pro_pvp = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
     pro_image = models.TextField(blank=True, null=True)
     pro_state = models.BooleanField(blank=True, null=True)
-    pro_stock = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
+    pro_stock = models.IntegerField(blank=True, null=True)
     class Meta:
         db_table = 'product'
 

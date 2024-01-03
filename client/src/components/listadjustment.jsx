@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
-import { getAllProduct, deleteProduct } from "../api/product.api";
+import { getAllAdjustment, deleteAdjustment } from "../api/adjustment.api";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-//import { getAllFacturas } from "../api/facturacion.api";
- 
-export function Listproduct() {
-  const [products, setProduct] = useState([]);
+
+export function Listadjustment() {
+  const [adjustments, setAdjustment] = useState([]);
   const [search, setSearch] = useState("");
   const navigate = useNavigate();
 
@@ -15,30 +14,27 @@ export function Listproduct() {
   };
 
   useEffect(() => {
-    async function loadProduct(){
-      const res = await getAllProduct();
-      setProduct(res.data);
+    async function loadAdjustment() {
+      const res = await getAllAdjustment();
+      setAdjustment(res.data);
     }
-    loadProduct();
-
-  fetch('http://localhost:8001')
-  .then(res => res.json())
-  .then(data => console.log(data))
+    loadAdjustment();
   }, []);
 
-
   let result = [];
-  if(!search){
-    result = products
-  }else{    
-    result = products.filter( (data) => 
-      data.pro_name.toLowerCase().includes(search.toLowerCase())
+  if (!search) {
+    result = adjustments;
+    console.log(result);
+  } else {
+    result = adjustments.filter((data) =>
+      String(data.user_id).toLowerCase().includes(String(search).toLowerCase())
     );
+    console.log(result);
   }
 
   return (
     <div className="flex flex-col items-center">
-      <h2 className="text-2xl font-bold mb-4">LISTA DE PRODUCTOS</h2>
+      <h2 className="text-2xl font-bold mb-4">LISTA DE AJUSTES</h2>
       <div>
         <input
           value={search}
@@ -54,9 +50,9 @@ export function Listproduct() {
       </div>
       <br />
       <div>
-        <Link to="/create" className="bg-blue-500">
+        <Link to="/create_adjustment" className="bg-blue-500">
           <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-400 focus:outline-none focus:shadow-outline-gray active:bg-blue-800">
-            Crear Producto +
+            Crear Ajuste +
           </button>
         </Link>
       </div>
@@ -65,48 +61,38 @@ export function Listproduct() {
         <thead>
           <tr className="bg-gray-200">
             <th className="border p-2">Nro.</th>
-            <th className="border p-2">Nombre</th>
-            <th className="border p-2">Descripción</th>
-            <th className="border p-2">IVA</th>
-            <th className="border p-2">Costo</th>
-            <th className="border p-2">PVP</th>
-            <th className="border p-2">Imagen</th>
-            <th className="border p-2">Estado</th>
-            <th className="border p-2">Stock</th>
+            <th className="border p-2">ID Ajuste</th>
+            <th className="border p-2">Usuario</th>
+            <th className="border p-2">Fecha</th>
+            <th className="border p-2">Descripcion</th>
             <th className="border p-2">Acciones</th>
           </tr>
         </thead>
         <tbody>
-          {result.map((product, index) => (
+          {result.map((adjustment, index) => (
             <tr
-              key={product.pro_id}
+              key={adjustment.adj_id}
               className={index % 2 === 0 ? "bg-gray-100" : ""}
             >
               <td className="border p-2">{index + 1}</td>
-              <td className="border p-2">{product.pro_name}</td>
-              <td className="border p-2">{product.pro_descripcion}</td>
-              <td className="border p-2">{product.pro_iva ? "Sí" : "No"}</td>
-              <td className="border p-2">{product.pro_cost}</td>
-              <td className="border p-2">{product.pro_pvp}</td>
-              <td className="border p-2">{product.pro_image}</td>
-              <td className="border p-2">
-                {product.pro_state ? "Activo" : "Inactivo"}
-              </td>
-              <td className="border p-2">{product.pro_stock}</td>
+              <td className="border p-2">{adjustment.adj_id}</td>
+              <td className="border p-2">{adjustment.user_id}</td>
+              <td className="border p-2">{adjustment.adj_date}</td>
+              <td className="border p-2">{adjustment.adj_description}</td>
               <td className="border p-2">
                 <button
-                  onClick={() => navigate("/create/" + product.pro_id)}
+                  onClick={() =>
+                    navigate("/create_adjustment/" + adjustment.adj_id)
+                  }
                   className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-400 focus:outline-none focus:shadow-outline-gray active:bg-blue-800 mb-4"
                 >
                   Editar
                 </button>
                 <button
                   onClick={async () => {
-                    const state = window.confirm(
-                      `Desea eliminar ${product.pro_name}`
-                    );
+                    const state = window.confirm(`Desea eliminar el ajuste?`);
                     if (state) {
-                      await deleteProduct(product.pro_id);
+                      await deleteAdjustment(adjustment.adj_id);
                       window.location.reload();
                     } else {
                       navigate("/");
@@ -125,4 +111,4 @@ export function Listproduct() {
   );
 }
 
-export default Listproduct;
+export default Listadjustment;
