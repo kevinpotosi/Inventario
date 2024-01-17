@@ -4,10 +4,7 @@ import {CreateProduct} from './pages/formproductpage'
 import { Adjustmentpage } from './pages/adjustmentpage'
 import { CreateAdjustment } from './pages/formadjustmentpage'
 import {Toaster} from 'react-hot-toast'
-<<<<<<< HEAD
-=======
 import Login from './pages/login'
->>>>>>> Bryan
  
 function App(){
     
