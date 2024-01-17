@@ -10,3 +10,4 @@ router.register(r'detail_adjustment',views.Detail_AdjustmentView,'detail_adjustm
 urlpatterns = [
      path('', include(router.urls)),
 ]
+ 

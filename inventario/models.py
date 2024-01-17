@@ -1,5 +1,6 @@
 
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 
 
 class Adjustment(models.Model):
@@ -31,4 +32,10 @@ class Detail_Adjustment(models.Model):
     det_adj_id = models.AutoField(primary_key=True)
     det_adj_quantity = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
     class Meta:
+<<<<<<< HEAD
         db_table = 'detail_adjustment'
+=======
+        db_table = 'detail_adjustment'
+
+class CustomUser(AbstractUser):
+>>>>>>> Bryan

@@ -255,9 +255,15 @@ export function CreateProduct() {
           <div className="md:flex md:items-center">
             <div className="md:w-1/3"></div>
             <div className="md:w-2/3">
+<<<<<<< HEAD
               <Link to="/">
                 <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-400 focus:outline-none focus:shadow-outline-gray active:bg-blue-800">
                   &lt;- Inicio
+=======
+              <Link to="../components/listproduct">
+                <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-400 focus:outline-none focus:shadow-outline-gray active:bg-blue-800">
+                  &lt; Cancelar
+>>>>>>> Bryan
                 </button>
               </Link>
               <button

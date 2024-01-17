@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { getAllProduct, deleteProduct } from "../api/product.api";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+<<<<<<< HEAD
 //import { getAllFacturas } from "../api/facturacion.api";
  
 export function Listproduct() {
@@ -16,11 +17,27 @@ export function Listproduct() {
 
   useEffect(() => {
     async function loadProduct(){
+=======
+
+export function Listproduct() {
+  const [products, setProduct] = useState([]);
+  const [search, setSearch] = useState("");
+  const [ascending, setAscending] = useState(true);
+  const navigate = useNavigate();
+
+  const searcher = (e) => {
+    setSearch(e.target.value);
+  };
+
+  useEffect(() => {
+    async function loadProduct() {
+>>>>>>> Bryan
       const res = await getAllProduct();
       setProduct(res.data);
     }
     loadProduct();
 
+<<<<<<< HEAD
   fetch('http://localhost:8001')
   .then(res => res.json())
   .then(data => console.log(data))
@@ -32,10 +49,34 @@ export function Listproduct() {
     result = products
   }else{    
     result = products.filter( (data) => 
+=======
+    fetch("http://localhost:8001")
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+  }, []);
+
+  let result = [];
+  if (!search) {
+    result = products;
+  } else {
+    result = products.filter((data) =>
+>>>>>>> Bryan
       data.pro_name.toLowerCase().includes(search.toLowerCase())
     );
   }
 
+<<<<<<< HEAD
+=======
+  const handleSort = () => {
+    setAscending(!ascending);
+    setProduct([...result].sort((a, b) => {
+      const nameA = a.pro_name.toLowerCase();
+      const nameB = b.pro_name.toLowerCase();
+      return ascending ? nameA.localeCompare(nameB) : nameB.localeCompare(nameA);
+    }));
+  };
+
+>>>>>>> Bryan
   return (
     <div className="flex flex-col items-center">
       <h2 className="text-2xl font-bold mb-4">LISTA DE PRODUCTOS</h2>
@@ -64,8 +105,22 @@ export function Listproduct() {
       <table className="border-collapse border">
         <thead>
           <tr className="bg-gray-200">
+<<<<<<< HEAD
             <th className="border p-2">Nro.</th>
             <th className="border p-2">Nombre</th>
+=======
+            <th className="border p-2">Acciones</th>
+            <th
+              
+              
+            >
+              Nro
+            </th>
+            <th className="border p-2 cursor-pointer" onClick={handleSort}>
+              Nombre{" "}
+              {ascending ? "▲" : "▼"}
+            </th>
+>>>>>>> Bryan
             <th className="border p-2">Descripción</th>
             <th className="border p-2">IVA</th>
             <th className="border p-2">Costo</th>
@@ -73,7 +128,10 @@ export function Listproduct() {
             <th className="border p-2">Imagen</th>
             <th className="border p-2">Estado</th>
             <th className="border p-2">Stock</th>
+<<<<<<< HEAD
             <th className="border p-2">Acciones</th>
+=======
+>>>>>>> Bryan
           </tr>
         </thead>
         <tbody>
@@ -82,6 +140,7 @@ export function Listproduct() {
               key={product.pro_id}
               className={index % 2 === 0 ? "bg-gray-100" : ""}
             >
+<<<<<<< HEAD
               <td className="border p-2">{index + 1}</td>
               <td className="border p-2">{product.pro_name}</td>
               <td className="border p-2">{product.pro_descripcion}</td>
@@ -93,6 +152,8 @@ export function Listproduct() {
                 {product.pro_state ? "Activo" : "Inactivo"}
               </td>
               <td className="border p-2">{product.pro_stock}</td>
+=======
+>>>>>>> Bryan
               <td className="border p-2">
                 <button
                   onClick={() => navigate("/create/" + product.pro_id)}
@@ -117,6 +178,20 @@ export function Listproduct() {
                   Eliminar
                 </button>
               </td>
+<<<<<<< HEAD
+=======
+              <td className="border p-2">{index + 1}</td>
+              <td className="border p-2">{product.pro_name}</td>
+              <td className="border p-2">{product.pro_descripcion}</td>
+              <td className="border p-2">{product.pro_iva ? "Sí" : "No"}</td>
+              <td className="border p-2">{product.pro_cost}</td>
+              <td className="border p-2">{product.pro_pvp}</td>
+              <td className="border p-2">{product.pro_image}</td>
+              <td className="border p-2">
+                {product.pro_state ? "Activo" : "Inactivo"}
+              </td>
+              <td className="border p-2">{product.pro_stock}</td>
+>>>>>>> Bryan
             </tr>
           ))}
         </tbody>

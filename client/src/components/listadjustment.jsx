@@ -8,7 +8,11 @@ export function Listadjustment() {
   const [search, setSearch] = useState("");
   const navigate = useNavigate();
 
+<<<<<<< HEAD
   const searcher = (e) => {
+=======
+  const searcher = (e) => { 
+>>>>>>> Bryan
     setSearch(e.target.value);
     console.log(e.target);
   };
