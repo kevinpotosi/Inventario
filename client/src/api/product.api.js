@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const productApi = axios.create({
-    baseURL: 'http://localhost:8000/inventario/products/'
+    baseURL: 'https://inventario-phue.onrender.com/inventario/products/'
 });
 
 export const getAllProduct = () => productApi.get('/');
