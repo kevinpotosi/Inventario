@@ -1,4 +1,4 @@
-@set "VIRTUAL_ENV=C:\Users\onvia\OneDrive\Documentos\Aplicaciones Distribuidas\Inventario\venv"
+@set "VIRTUAL_ENV=C:\Users\Kevin\Documents\Universidad\6to Semestre\Aplicaciones Distribuidas\Módulo Inventario\Inventario\venv"
 
 @set "VIRTUAL_ENV_PROMPT="
 @if NOT DEFINED VIRTUAL_ENV_PROMPT (

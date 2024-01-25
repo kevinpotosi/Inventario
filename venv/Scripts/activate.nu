@@ -32,7 +32,7 @@ export-env {
       }
     }
 
-    let virtual_env = 'C:\Users\onvia\OneDrive\Documentos\Aplicaciones Distribuidas\Inventario\venv'
+    let virtual_env = 'C:\Users\Kevin\Documents\Universidad\6to Semestre\Aplicaciones Distribuidas\Módulo Inventario\Inventario\venv'
     let bin = 'Scripts'
 
     let is_windows = ($nu.os-info.family) == 'windows'

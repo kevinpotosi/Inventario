@@ -12,7 +12,7 @@ function App(){
         <div className='m-0, w-full, h-full'>
         <BrowserRouter>
             <Routes>
-                <Route path='/' element={<Login/>}/>
+                <Route path='/' element={<Productpage/>}/>
                 <Route path='/Components/listproduct' element={<Productpage/>}/>
                 <Route path='/create' element={<CreateProduct/>}/>                
                 <Route path='/create/:id' element={<CreateProduct/>}/>
