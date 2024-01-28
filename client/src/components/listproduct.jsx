@@ -15,8 +15,14 @@ export function Listproduct() {
 
   useEffect(() => {
     async function loadProduct() {
-      const res = await getAllProduct();
-      setProduct(res.data);
+      try {
+        const response = await fetch('https://inventario-phue.onrender.com/inventario/products/', {mode:'cors'});
+        const data = await response.json();
+        console.log({ data })
+      }
+      catch (e) {
+        console.log(e)
+      }
     }
     loadProduct();
 
