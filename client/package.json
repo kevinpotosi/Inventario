@@ -9,7 +9,7 @@
     "build": "npm run start-api && npm run start-client",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "start-api": "node src/api/facturacion.api.js",
+    "start-api": "node src/api/facturacion.api.js &",
     "start-client": "vite"
   },
   "dependencies": {
