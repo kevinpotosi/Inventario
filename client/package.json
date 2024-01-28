@@ -10,7 +10,7 @@
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "start-api": "node src/api/facturacion.api.js &",
-    "start-client": "cd client && vite build && serve dist"
+    "start-client": "vite build && serve dist"
   },
   "dependencies": {
     "axios": "^1.6.3",
