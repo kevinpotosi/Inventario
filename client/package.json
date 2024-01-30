@@ -5,12 +5,12 @@
   "type": "module",
   "scripts": {
     "start": "node ../client/src/api/facturacion.api.js",
-    "dev": "concurrently \"npm run start-api\" \"npm run start-client\"",
+    "dev": "concurrently \"npm run start-api\" \"npm run start-client\" vite",
     "build": "npm run start-api && npm run start-client",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "start-api": "node src/api/facturacion.api.js &",
-    "start-client": "vite build && serve dist"
+    "start-client": "vite build && serve dist &"
   },
   "dependencies": {
     "axios": "^1.6.3",

@@ -39,7 +39,7 @@ export function CreateProduct() {
       await createProduct(data);
       toast.success("Producto Creado Correctamente");
     }
-    navigate("/components/listproduct");
+    navigate("../components/listproduct.jsx");
   });
   return (
     <div>
