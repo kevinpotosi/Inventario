@@ -158,6 +158,7 @@ CORS_ALLOWED_ORIGINS = [
     'http://localhost:8000',
     'http://localhost:5173',
     'https://inventario-phue.onrender.com',
+    'https://inventarioweb-oq45.onrender.com',
 ]
 
 CORS_ALLOW_METHODS = [
