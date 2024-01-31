@@ -37,7 +37,7 @@ export function CreateAdjustment() {
       await createAdjustment(data);
       toast.success("Ajuste Creado Correctamente");
     }
-    navigate("/adjustment");
+    navigate("../components/listadjustment");
   }catch(error){
     toast.error("El ajuste no se creo "+error)
   }
@@ -53,14 +53,14 @@ export function CreateAdjustment() {
               <div className="hidden sm:ml-6 sm:block">
                 <div className="flex space-x-4">
                   <a
-                    href="/"
+                    href="../components/listproduct"
                     className="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium"
                     aria-current="page"
                   >
                     INVENTARIO
                   </a>
                   <a
-                    href="/adjustment"
+                    href="../components/listadjustment"
                     className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
                   >
                     Ajustes
