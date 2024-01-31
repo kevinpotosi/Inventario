@@ -21,7 +21,7 @@ export function Productpage() {
                     INVENTARIO
                   </a>
                   <a
-                    href="/adjustment"
+                    href="../pages/adjustmentpage.jsx"
                     className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
                   >
                     Ajustes
