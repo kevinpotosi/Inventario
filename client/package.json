@@ -9,7 +9,7 @@
     "build": "npm run start-client",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "start-client": "vite build && serve dist"
+    "start-client": "vite build && serve dist &"
   },
   "dependencies": {
     "axios": "^1.6.3",

@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const adjustmentApi = axios.create({
-    baseURL: 'http://127.0.0.1:8000/inventario/adjustment/'
+    baseURL: 'https://inventario-phue.onrender.com/inventario/adjustment/'
 })
 
 export const getAllAdjustment = () => adjustmentApi.get('/')
