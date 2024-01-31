@@ -38,7 +38,7 @@ const Login = () => {
 
       setSuccess("Inicio de sesión exitoso");
 
-      navigate("../components/listproduct");
+      navigate("/");
     } catch (error) {
       setError(
         "Credenciales incorrectas. Por favor, verifica tu usuario y contraseña."
