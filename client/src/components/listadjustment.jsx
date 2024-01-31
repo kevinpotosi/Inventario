@@ -95,7 +95,7 @@ export function Listadjustment() {
                       await deleteAdjustment(adjustment.adj_id);
                       window.location.reload();
                     } else {
-                      navigate("/");
+                      navigate("../components/listproduct");
                     }
                   }}
                   className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-400 focus:outline-none focus:shadow-outline-gray active:bg-red-800 mb-4"
