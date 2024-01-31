@@ -127,7 +127,12 @@ export function Listproduct() {
               <td className="border p-2">{product.pro_iva ? "Sí" : "No"}</td>
               <td className="border p-2">{product.pro_cost}</td>
               <td className="border p-2">{product.pro_pvp}</td>
-              <td className="border p-2">{product.pro_image}</td>
+              <td className="border p-2">
+                <img
+                  src={product.pro_image}
+                  alt={product.pro_name}
+                  style={{ maxWidth: "50px", maxHeight: "50px" }}
+                /></td>
               <td className="border p-2">
                 {product.pro_state ? "Activo" : "Inactivo"}
               </td>
